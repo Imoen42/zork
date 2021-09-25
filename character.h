@@ -1,39 +1,18 @@
 #ifndef _character_h
 #define _character_h
 
-struct Player
-{
-	int player_score;
-	char item[10][20];
-	char team[10][20];
-};
-
-struct Characters
-{
-	char zh_name[10];
-	char name[30];
-	char description[100];
-	int talk_count;
-	int team;
-	int alive;
-	int sad;
-	int angry;
-	int happy;
-};
-
-struct Map
-{
-	char key[8];
-	char value[20];
-	void (*talk)();
-};
-
-extern struct Player player;
-
-extern struct Characters miao;
-extern struct Characters GraveKeeper;
-
-void miao_talk();
-void GraveKeeper_talk();
+void init_character();
+void free_character();
+void look_character(char *args1);
+void talk_character(char *args1);
+int search_character(char *args1);
+char *get_character_string(char *update, char *args1);
+int get_player_score();
+void inventory();
+int search_item_from_inventory(char *args1);
+void add_item_to_inventory(char *update);
+void delete_item_from_inventory(char *update);
+void save_character();
+void load_character();
 
 #endif
