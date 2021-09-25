@@ -1,19 +1,16 @@
 #ifndef _command_h
 #define _command_h
 
-extern enum Direction direction;
+void init();
+void free_mem();
+void command_map(char *args0);
+void command(char *args0, char *args1);
 
-void reset_location();
-void describe();
-void room_move(enum Direction direction);
-void inventory();
-void search_command(char *args1, char *args2);
+void set_location(char *args1);
 
-void save();
-void load();
+int search_item_from_inventory(char *args1);
 
-int search_inventory();
-int search_item();
-void turn_off_item(char *args);
+void set_item(char *args1);
+int item_on(char *args1);
 
 #endif
