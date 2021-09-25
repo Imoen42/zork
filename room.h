@@ -5,23 +5,19 @@ enum Direction {
     NORTH, SOUTH, EAST, WEST
 };
 
-struct Room
-{
-    char name[20];
-    char description[200];
-	char item[5][20];
-	char character[5][20];
-    struct Room *north;
-    struct Room *south;
-    struct Room *east;
-    struct Room *west;
-	void (*special_move)(enum Direction direction);//函数指针，满足某些条件才能进入下一地图
-};
-
-extern struct Room DeadForest;
-extern struct Room LakesideGraveyard;
-extern struct Room LogCabin;
-extern struct Room OakTownGate;
-extern struct Room *location;
+extern enum Direction direction;
+void init_room();
+void free_room();
+void reset_location();
+void set_location(char *args1);
+void describe();
+void room_move(enum Direction direction);
+int search_item_from_room(char *args1);
+int search_character_from_room(char *args1);
+void add_item_to_room(char *update);
+void delete_item_from_room(char *args1);
+void add_character_to_room(char *update);
+void save_room();
+void load_room();
 
 #endif
